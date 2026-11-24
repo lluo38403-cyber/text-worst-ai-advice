@@ -13,6 +13,8 @@ MAX_CHARS = 140
 
 def main():
     assert ENTRY.strip(), "entry must not be blank"
+    assert ENTRY == ENTRY.strip(), "entry must not have leading or trailing whitespace"
+    assert ENTRY[-1] in ".!?", "entry must end with terminal punctuation"
     assert len(ENTRY) <= MAX_CHARS, f"entry is {len(ENTRY)} chars, limit is {MAX_CHARS}"
     assert "\n" not in ENTRY, "entry must be a single line"
     out_dir = Path(os.environ.get("ENTRY_OUTPUT_DIR", "/output"))
