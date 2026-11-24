@@ -13,6 +13,8 @@ MAX_CHARS = 140
 def main() -> None:
     text = ENTRY
     assert text.strip(), "entry must not be only whitespace"
+    assert "\n" not in text, "entry must be a single line"
+
     assert len(text) <= MAX_CHARS, (
         f"entry is {len(text)} characters, over the {MAX_CHARS} limit"
     )
